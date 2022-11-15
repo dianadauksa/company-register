@@ -61,7 +61,7 @@ class Data {
 
     public function searchByRegistrationCode(int $registrationCode): ?\Generator  {
         $records = Statement::create()
-            ->where(fn(array $record) => stripos($record["regcode"], strval($registrationCode)) !== false)
+            ->where(fn(array $record) => str_contains($record["regcode"], strval($registrationCode)) !== false)
             ->process($this->reader);
         foreach ($records as $record) {
             yield new Company($record["name"], $record["regcode"]);
