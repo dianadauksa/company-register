@@ -4,13 +4,13 @@ require_once 'vendor/autoload.php';
 require_once 'app/printout.php';
 use App\Data;
 
-// Please download necessary data file from: shorturl.at/jlJQY and add it locally to your project repository for further use
+// Download data file from: shorturl.at/jlJQY and add it to the project repository
 const DATA_FILE = 'register.csv';
 $companyRegister = new Data(DATA_FILE);
 
 echo "Atlasiet nepieciešamos Uzņēmumu reģistra datus:" . PHP_EOL;
 do {
-    echo "\n1. Apskatīt jaunākos uzņēmumus." . PHP_EOL; // only when this chosen, then offset sets to last 30 (446058)!!!
+    echo "\n1. Apskatīt jaunākos uzņēmumus." . PHP_EOL;
     echo "2. Apskatīt vecākos uzņēmumus." . PHP_EOL;
     echo "3. Meklēt uzņēmumu pēc nosaukuma." . PHP_EOL;
     echo "4. Meklēt uzņēmumu pēc reģistrācijas numura." . PHP_EOL;
