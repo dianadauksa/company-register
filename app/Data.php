@@ -33,7 +33,6 @@ class Data {
     public function getLatestRecords(int $amount): ?\Generator {
         $records = Statement::create()
             ->offset($this->recordAmount - $amount)
-            ->limit($amount)
             ->process($this->reader);
         foreach ($records as $record) {
             yield new Company($record["name"], $record["regcode"]);
