@@ -1,7 +1,7 @@
 <?php
 
 require_once 'vendor/autoload.php';
-require_once 'app/showCompanies.php';
+require_once 'app/printout.php';
 use App\Data;
 
 // Please download necessary data file from: shorturl.at/jlJQY and add it locally to your project repository for further use
@@ -23,22 +23,22 @@ do {
         case 1:
             $amount = intval(readline("Norādiet skaitu, cik uzņēmumus vēlaties apskatīt >> "));
             $companies = $companyRegister->getLatestRecords($amount);
-            showCompanies($companies);
+            printOut($companies);
             break;
         case 2:
             $amount = intval(readline("Norādiet skaitu, cik uzņēmumus vēlaties apskatīt >> "));
             $companies = $companyRegister->getOldestRecords($amount);
-            showCompanies($companies);
+            printOut($companies);
             break;
         case 3:
             $companyName = readline("Norādiet uzņēmuma nosaukumu >> ");
             $companies = $companyRegister->searchByName($companyName);
-            showCompanies($companies);
+            printOut($companies);
             break;
         case 4:
             $registrationCode = readline("Norādiet uzņēmuma reģistrācijas numuru >> ");
             $companies = $companyRegister->searchByRegistrationCode($registrationCode);
-            showCompanies($companies);
+            printOut($companies);
             break;
     }
 } while ($searchFor !== 5);

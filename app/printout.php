@@ -1,6 +1,6 @@
 <?php
 
-function showCompanies(\Generator $companies): void {
+function printOut(\Generator $companies): void {
     foreach ($companies as $company) {
         echo $company;
     }
