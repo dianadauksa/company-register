@@ -51,7 +51,7 @@ class Data {
 
     public function searchByName(string $companyName): ?\Generator {
         $records = Statement::create()
-            ->where(fn(array $record) => stripos($record["name"], $companyName) !== false)
+            ->where(fn(array $record) => stripos($record["name"], $companyName) !== false) // WHERE clause is used to filter records, to extract only those records that fulfill a specified condition.
             ->process($this->reader);
         foreach ($records as $record) {
             yield new Company($record["name"], $record["regcode"]);
