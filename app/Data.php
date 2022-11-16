@@ -7,10 +7,12 @@ class Data {
     private string $fileName;
     private int $recordAmount;
     private object $reader;
+    private string $delimiter;
 
-    public function __construct(string $fileName) {
+    public function __construct(string $fileName, string $delimiter) {
 
         $this->fileName = $fileName;
+        $this->delimiter = $delimiter;
         $file = new \SplFileObject($this->fileName, 'r');
         $file->seek(999999); // seek to specified line; if even bigger files, could use PHP_INT_MAX (PHP constant for largest integer supported by current build of PHP)
         $this->recordAmount = $file->key() - 1;
@@ -18,7 +20,7 @@ class Data {
         In company register though could not really find a pattern which is in EVERY line, not SIA, not LV, maybe by quotes but could be buggy*/
 
         $this->reader = Reader::createFromPath($this->fileName);
-        $this->reader->setDelimiter(";");
+        $this->reader->setDelimiter($this->delimiter);
         $this->reader->setHeaderOffset(0);
     }
 

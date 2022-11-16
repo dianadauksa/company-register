@@ -6,7 +6,7 @@ use App\Data;
 
 // Download data file from: shorturl.at/jlJQY and add it to the project repository
 const DATA_FILE = 'register.csv';
-$companyRegister = new Data(DATA_FILE);
+$companyRegister = new Data(DATA_FILE, ";");
 
 echo "Atlasiet nepieciešamos Uzņēmumu reģistra datus:" . PHP_EOL;
 do {
